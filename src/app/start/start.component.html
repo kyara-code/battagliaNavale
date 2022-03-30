@@ -1,0 +1,51 @@
+<div *ngIf="restart.startGame === false" 
+    class="container">
+            <div style="display: flex; justify-content: center;">
+                <h1>
+                    <i class="fa-solid fa-ship"></i>Gioca a Battaglia Navale!
+                </h1>
+            </div>
+            <div style="display: flex; justify-content: center;">
+                <button class="btn btn-primary start" (click)="onStartGame()">Inizia Ora!</button>
+            </div>
+        
+    <div style="display: flex; justify-content: center;">
+        <div style="width: 70%;">
+            <h4>Prova a cliccare sulla nave</h4>
+            <div class="fixed-anim-container">
+        
+                <div [ngClass]="{'animation-container': !isSinking, 'animation-sinking': isSinking}"
+                [ngStyle]="{'animation-play-state': (!isAnimationOn) ? 'paused' : 'running'}"
+                (click)="clickOnSea()">
+                    
+                    <i class="fa-solid fa-sailboat animation-boat"
+                    [ngStyle]="{'animation-play-state': isAnimationOn ? 'running' : 'paused'}"
+                    (click)="sailSink()"></i>
+                </div>
+            </div>
+            <div style="display: flex;
+            justify-content: right;
+            width: 100%;">
+                <button class="btn btn-default" (click)="onStopAnimation()">
+                    <i class="fa-solid fa-stop" *ngIf="isAnimationOn"></i>
+                    <i class="fa-solid fa-play" *ngIf="!isAnimationOn"></i> 
+                    Animazione
+                </button>
+            </div>
+            <div style="margin: 10px;">
+                <button class="btn btn-danger" (click)="onClean()">Ripeti</button>
+        
+                <div *ngIf="isSeaClicked && !isSinking">
+                    <p *ngFor="let seaClick of seaClicks">
+                        Ops! Non hai colpito la nave, ma questa lontra!<i class="fa-solid fa-otter"></i> Concentrati di più! 
+                    </p>
+                </div>
+                <div *ngIf="isSinking">
+                    <p>Hai affondato la nave! <i class="fa-solid fa-hands-clapping"></i>
+                    <br>
+                    Inizia il gioco cliccando in alto!<i class="fa-solid fa-angle-up"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

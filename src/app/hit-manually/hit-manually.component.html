@@ -1,0 +1,23 @@
+<label style="font-size: 10px;">Inserisci la casella da colpire (oppure cliccaci su)!</label>
+      <div style="display: flex; justify-content: center;">
+        <div style="width: 100px;">
+          <div>
+            <select [(ngModel)] = "letterSelected" class="form-control">
+              <option disabled>Seleziona la lettera</option>
+              <ng-container *ngFor="let item of listLetters">
+                <option *ngIf="item!==''" style="font-weight: bold;">{{item}}</option>
+              </ng-container>
+            </select>
+            <select [(ngModel)] = "numberSelected" class="form-control">
+              <option disabled>Seleziona il numero</option>
+              <ng-container *ngFor="let item of listNumbers">
+                <option *ngIf="item!==''" style="font-weight: bold;">{{item}}</option>
+              </ng-container>
+            </select>
+          </div>
+          <div>
+            <button class="btn btn-danger" (click)="onManualHit()">Fuoco!</button>
+          </div>
+          <p style="font-size: 12px; color: red;">{{errore}}</p>
+        </div>
+      </div>

@@ -1,0 +1,66 @@
+.container{
+    margin-top: 10%; 
+    background-color: #fffae3;
+    border: 3px solid #ccba68;
+}
+
+h1, h4, i {
+    font-weight: bold;
+    color: rgb(6, 1, 102);
+}
+.start {
+    font-weight: bold;
+    font-size: 25px;
+    width: 200px;
+    height: 100px; 
+}
+
+.animation-boat {
+    font-size: 40px;
+    padding: 5px;
+    animation: oscillation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: linear;
+}
+.fixed-anim-container{
+    background: rgb(6, 1, 102);
+    background: linear-gradient(0deg, rgb(6, 1, 102) 0%, rgb(35, 98, 235) 40%, rgb(20, 239, 255) 100%);
+    margin: 10px;
+    height: 200px;
+    width: 100%; 
+}
+.animation-container{
+    animation: goForward;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: cubic-bezier(0.98, 0.35, 0.18, 0.62);
+    animation-fill-mode: forwards;
+    height: 200px;
+    width: 70%;
+}
+.animation-sinking{
+    animation: sink;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-direction: alternate-reverse;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    height: 200px;
+    width: 400px;
+}
+
+@keyframes oscillation {
+    from {transform: rotate(-30deg)}
+    to {transform: rotate(30deg);}
+}
+@keyframes goForward {
+    from {padding-left: 90%;}
+    to {padding-left: 0px;}
+}
+@keyframes sink {
+    from {padding-top: 150px;}
+    to {padding-top: 0px;}
+}

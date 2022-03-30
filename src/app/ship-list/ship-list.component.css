@@ -1,0 +1,20 @@
+.contenitore {
+    display: flex;
+    justify-content: space-around;
+}
+.ship{
+    display: flex;
+    justify-content: center;
+}
+.cell {
+    width: 30px;
+    height: 30px;
+    border: 2px solid gray;
+    background-color: #cfa26b;
+    display: flex;
+    justify-content: center;
+}
+
+i {
+    margin-top: 5px;
+}

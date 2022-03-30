@@ -1,0 +1,13 @@
+<div 
+    (click)="onClickSingleCell()" 
+    style="width: 30px; height: 30px;"
+    [ngStyle] = "{'background-color': whatToDisplay === 'nothing' ? 
+    (cell?.status === 'not hit' ? 'transparent' : (cell?.type === 'sea' ? '#a8f6ff' : '#cfa26b')) : 
+    (whatToDisplay === 'sea' ? (cell?.type === 'sea' ? '#a8f6ff' : (cell?.status === 'not hit' ? 'transparent' : '#cfa26b')) : 
+    (cell?.type !== 'sea' ? '#cfa26b' : (cell?.status === 'not hit' ? 'transparent' : '#a8f6ff')))}">
+    <p *ngIf="cell?.status === 'hit' && cell?.type === 'sea' "
+        style="color: red;">x</p>
+    <p *ngIf="cell?.status === 'hit' && 
+        cell?.type!=='sea'"
+        style="color: green;">o</p>
+</div>

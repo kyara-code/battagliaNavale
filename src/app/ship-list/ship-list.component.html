@@ -1,0 +1,41 @@
+<div class="ship-counter">
+    <label>Portaerei</label>
+    <div class="ship"
+    *ngIf="shipManage.portaereiCounter != 0; else space">
+        <div *ngFor="let i of [1, 2, 3, 4]"
+        class="cell">
+            <i class="fa-solid fa-ferry"></i>
+        </div>
+    </div>
+    <!-- #space è stato inserito perché altrimenti, una volta eliminato il portaerei 
+    si otteneva la scritta "PotaereiIncrociatori" (e cioè senza nessun 'a capo') -->
+    <ng-template #space>
+        <br>
+    </ng-template>
+    <label>Incrociatori</label>
+        <div class="contenitore" >
+            <div *ngFor="let i of restart.incrociatori" class="ship">
+                <div *ngFor="let i of [1, 2, 3]"
+                    class="cell">
+                    <i class="fa-solid fa-ferry"></i>
+                </div>
+            </div>
+        </div>
+    <label>Torpedinieri</label>
+        <div class="contenitore" >
+            <div *ngFor="let i of restart.torpedinieri" class="ship">
+                    <div *ngFor="let i of [1, 2]"
+                    class="cell">
+                    <i class="fa-solid fa-ship"></i>
+                </div>
+            </div>
+        </div>
+    <label>Sommergibili</label>
+    <div class="contenitore">
+        <div *ngFor="let i of restart.sommergibili">
+            <div class="cell">
+                <i class="fa-solid fa-sailboat"></i>
+            </div>
+        </div>
+    </div>
+</div>

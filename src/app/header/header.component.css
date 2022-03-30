@@ -1,0 +1,11 @@
+h1, i {
+    font-weight: bold;
+    color: rgb(37, 30, 148);
+}
+li{
+    cursor: pointer;
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+}

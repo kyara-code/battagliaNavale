@@ -1,0 +1,22 @@
+.container1 {
+    border: 4px solid;
+    padding: 0px;
+    width: 337px;
+}
+.rows {
+    border-bottom: 2px solid rgb(139, 139, 139);
+    height: 30px;
+    width: 330px;
+    display: flex;
+}
+.columns {
+    border-right: 2px solid rgb(139, 139, 139);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+i {
+    font-size: 20px;
+    color: rgb(197, 33, 5);
+}

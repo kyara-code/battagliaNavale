@@ -1,0 +1,54 @@
+<app-start *ngIf="restart.startGame === false"></app-start>
+
+<div *ngIf="restart.startGame === true">
+  <app-header (displayWhat)="onDisplayWhat($event)"></app-header>
+
+  <div style="display: flex; justify-content: space-around; margin: 100px 200px 0px 200px">
+    <div class="container1">
+      <div class="rows" 
+        *ngFor="let indice of indexes; let i = index">
+        <div class="columns" *ngFor="let letter of letters; let j = index">
+          <p *ngIf="letter === ''"
+            style="font-weight: bold;">{{indice}}</p>
+          <p *ngIf="indice === ''"
+            style="font-weight: bold;">{{letter}}</p>
+          <app-single-cell
+            [whatToDisplay]="whatToDisplay" 
+            *ngIf="indice != '' && letter != ''" 
+            [position] = "letter+indice"
+            (cellTypeEmission)="onCellHit($event)"
+            [cell] = "shipManage.cells[i][j]"></app-single-cell>
+          </div>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <p *ngIf="restart.gameOver" style="color: red; font-weight: bold; font-size: 20px;">GAME OVER</p>
+        <p *ngIf="restart.allCompleted" style="color: green; font-weight: bold; font-size: 20px;">VICTORY</p>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <p>Counter Vite: {{restart.counterLives}}</p>
+        <div style="width: 35%;">
+          <span *ngFor="let life of restart.livesArray"> 
+            <i class="fa-solid fa-heart"> </i>
+          </span>
+          <span *ngFor="let life of livesExpired">
+            <i class="fa-solid fa-heart-crack"></i>
+          </span>
+        </div>
+      </div>
+      <button class="btn btn-success" (click)="reset()">Restart</button>
+    </div>
+
+
+    <div class="side-container" style="border: 3px solid;">
+      <app-ship-list></app-ship-list>
+      <div>
+      <hr>
+      <app-hit-manually 
+      (cellEmitted) = "onCellHit($event)"
+      [listLetters]="letters"
+      [listNumbers]="indexes"></app-hit-manually>
+      </div>
+    </div>
+  </div>
+
+</div>
